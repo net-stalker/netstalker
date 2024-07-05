@@ -7,8 +7,9 @@ import {
 } from '@mui/material';
 import React from 'react';
 import NotFound from './pages/NotFound';
-import LandingPage from './LandingPage';
 import AppAppBar from './components/AppAppBar';
+import LandingPage from './pages/LandingPage';
+import Footer from './components/Footer';
 
 export function App() {
   return (
@@ -34,6 +35,7 @@ export function WrappedApp() {
         <CssBaseline />
         <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
         <App />
+        <Footer />
       </ThemeProvider>
     </HashRouter>
   );

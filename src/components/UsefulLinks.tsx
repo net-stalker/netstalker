@@ -4,26 +4,31 @@ import { Grid, Typography, Box, Paper, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { grey } from '@mui/material/colors';
 
-const features = [
+const links = [
   {
-    title: 'Feature One',
-    description:
-      'This is the description for feature one. It is very useful and important.',
+    title: 'Material-UI',
+    description: 'React components for faster and easier web development.',
+    url: 'https://mui.com/',
   },
   {
-    title: 'Feature Two',
-    description:
-      'This is the description for feature two. It helps you achieve more with less effort.',
+    title: 'React',
+    description: 'A JavaScript library for building user interfaces.',
+    url: 'https://reactjs.org/',
   },
   {
-    title: 'Feature Three',
-    description:
-      'This is the description for feature three. It is designed to improve efficiency.',
+    title: 'Framer Motion',
+    description: 'A production-ready motion library for React.',
+    url: 'https://www.framer.com/motion/',
   },
-  // Add more features as needed
+  {
+    title: 'Netlify',
+    description: 'The best way to build and deploy modern web projects.',
+    url: 'https://www.netlify.com/',
+  },
+  // Add more links as needed
 ];
 
-function Features() {
+function UsefulLinks() {
   const theme = useTheme();
 
   return (
@@ -35,10 +40,10 @@ function Features() {
       }}
     >
       <Typography variant="h4" align="center" gutterBottom>
-        Our Features
+        Useful Links
       </Typography>
       <Grid container spacing={4} justifyContent="center">
-        {features.map((feature, index) => (
+        {links.map((link, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Paper
@@ -46,7 +51,7 @@ function Features() {
                 sx={{
                   ml: 2,
                   mr: {
-                    md: index === features.length - 1 ? 2 : 0,
+                    md: index === links.length - 1 ? 2 : 0,
                     sm: (index + 1) % 2 === 0 ? 2 : 0,
                     xs: 2,
                   },
@@ -60,10 +65,23 @@ function Features() {
                 }}
               >
                 <Typography variant="h6" gutterBottom>
-                  {feature.title}
+                  {link.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {feature.description}
+                <Typography variant="body2" color="text.secondary" gutterBottom>
+                  {link.description}
+                </Typography>
+                <Typography variant="body2">
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      textDecoration: 'none',
+                      color: theme.palette.primary.main,
+                    }}
+                  >
+                    Visit Site
+                  </a>
                 </Typography>
               </Paper>
             </motion.div>
@@ -74,4 +92,4 @@ function Features() {
   );
 }
 
-export default Features;
+export default UsefulLinks;
