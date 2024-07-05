@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from 'react';
-import { alpha } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
