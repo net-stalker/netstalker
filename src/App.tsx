@@ -10,12 +10,15 @@ import NotFound from './pages/NotFound';
 import AppAppBar from './components/AppAppBar';
 import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
+import Documentation from './pages/Documentation';
+import ClientTour from './pages/ClientTour';
 
 export function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="#documentation" element={<NotFound />} />
+      <Route path="/documentation" element={<Documentation />} />
+      <Route path="/documentation/client-tour" element={<ClientTour />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

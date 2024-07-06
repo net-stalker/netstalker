@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PaletteMode } from '@mui/material';
+import { Link, PaletteMode } from '@mui/material';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -53,19 +53,19 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
     setOpen(newOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'smooth',
-      });
-      setOpen(false);
-    }
-  };
+  // const scrollToSection = (sectionId: string) => {
+  //   const sectionElement = document.getElementById(sectionId);
+  //   const offset = 128;
+  //   if (sectionElement) {
+  //     const targetScroll = sectionElement.offsetTop - offset;
+  //     sectionElement.scrollIntoView({ behavior: 'smooth' });
+  //     window.scrollTo({
+  //       top: targetScroll,
+  //       behavior: 'smooth',
+  //     });
+  //     setOpen(false);
+  //   }
+  // };
 
   return (
     <Box>
@@ -106,15 +106,17 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 alignItems: 'center',
               }}
             >
-              <img
-                loading="lazy"
-                src="https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-                style={{
-                  ...logoStyle,
-                  width: logoWidth,
-                }}
-                alt="logo of sitemark"
-              />
+              <Link href="/">
+                <img
+                  loading="lazy"
+                  src="https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
+                  style={{
+                    ...logoStyle,
+                    width: logoWidth,
+                  }}
+                  alt="logo of sitemark"
+                />
+              </Link>
               <Button
                 variant="text"
                 color="primary"
@@ -148,20 +150,8 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                       toggleColorMode={toggleColorMode}
                     />
                   </Box>
-                  <MenuItem onClick={() => scrollToSection('features')}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('testimonials')}>
-                    Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('highlights')}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('pricing')}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('faq')}>
-                    FAQ
+                  <MenuItem component="a" href="/#/documentation">
+                    Documentation
                   </MenuItem>
                   <Divider />
                 </Box>
