@@ -31,7 +31,6 @@ function Features() {
       sx={{
         py: 4,
         backgroundColor: theme.palette.mode === 'light' ? '#f0f0f0' : grey[800],
-        m: 2,
       }}
     >
       <Typography variant="h4" align="center" gutterBottom>

@@ -36,7 +36,6 @@ function UsefulLinks() {
       sx={{
         py: 4,
         backgroundColor: theme.palette.mode === 'light' ? '#f0f0f0' : grey[800],
-        m: 2,
       }}
     >
       <Typography variant="h4" align="center" gutterBottom>
@@ -51,7 +50,7 @@ function UsefulLinks() {
                 sx={{
                   ml: 2,
                   mr: {
-                    md: index === links.length - 1 ? 2 : 0,
+                    md: (index + 1) % 3 === 0 ? 2 : 0,
                     sm: (index + 1) % 2 === 0 ? 2 : 0,
                     xs: 2,
                   },
