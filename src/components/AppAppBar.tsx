@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, PaletteMode } from '@mui/material';
+import { Link, PaletteMode, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -8,7 +8,6 @@ import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
-import { lightBlue } from '@mui/material/colors';
 import ToggleColorMode from './ToggleColorMode';
 
 const logoStyle = {
@@ -24,6 +23,7 @@ interface AppAppBarProps {
 }
 
 function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
+  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
@@ -73,7 +73,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
         sx={{
           width: '100%',
           height: '200px',
-          backgroundColor: lightBlue[300],
+          backgroundColor: theme.palette.primary.main,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -124,7 +124,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 onClick={toggleDrawer(true)}
                 sx={{ ml: 2, minWidth: '30px', p: '4px' }}
               >
-                <MenuIcon />
+                <MenuIcon htmlColor={scrolled ? '#fff' : '#111'} />
               </Button>
             </Box>
             <Box>
